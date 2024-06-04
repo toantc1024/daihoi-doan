@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 /// Components
 import { Stage, Layer, Image, Group } from "react-konva";
 import TransformableImage from "./TransformableImage";
+import Konva from "konva";
 
 const CanvasStage = ({ scale, stageRef, frameImg, image, width, height }) => {
   const groupDimensions = {
@@ -33,6 +34,8 @@ const CanvasStage = ({ scale, stageRef, frameImg, image, width, height }) => {
       x: imagePositionX,
       y: imagePositionY,
       id: "renderImg1",
+      scaleX: 2,
+      scaleY: 2,
     },
   ];
 
@@ -45,6 +48,19 @@ const CanvasStage = ({ scale, stageRef, frameImg, image, width, height }) => {
     selectShape1(null);
     selectShape(null);
   };
+
+  const shapeRef = React.useRef();
+
+  useEffect(() => {
+    // Create 1s interval
+    if (shapeRef.current) {
+      let node = shapeRef.current;
+      node.setAttrs({
+        scaleX: scale,
+        scaleY: scale,
+      });
+    }
+  }, [scale]);
 
   return (
     <Stage ref={stageRef} width={350} height={350} x={0}>
@@ -59,8 +75,9 @@ const CanvasStage = ({ scale, stageRef, frameImg, image, width, height }) => {
         >
           <TransformableImage
             image={image}
-            imageWidth={imageRenderWidth * scale}
-            imageHeight={imageRenderHeight * scale}
+            shapeRef={shapeRef}
+            imageWidth={imageRenderWidth}
+            imageHeight={imageRenderHeight}
             onMouseDown={checkDeselect}
             onTouchStart={checkDeselect}
             isSelected={renderImg[0].id === selectedId1}
@@ -70,7 +87,7 @@ const CanvasStage = ({ scale, stageRef, frameImg, image, width, height }) => {
             onChange={(newAttrs) => {
               const imgs = tranImg.slice();
 
-              imgs[0] = { ...newAttrs, scaleX: 1.5, scaleY: 1.5 };
+              // imgs[0] = { ...newAttrs, scaleX: 1.5, scaleY: 1.5 };
 
               setTranImg(imgs);
             }}

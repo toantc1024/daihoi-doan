@@ -7,6 +7,30 @@ const slides = [
     description: "Slide 1 description",
     image: SLIDE_1,
   },
+  {
+    id: 1,
+    title: "Slide 1",
+    description: "Slide 1 description",
+    image: SLIDE_1,
+  },
+  {
+    id: 1,
+    title: "Slide 1",
+    description: "Slide 1 description",
+    image: SLIDE_1,
+  },
+  {
+    id: 1,
+    title: "Slide 1",
+    description: "Slide 1 description",
+    image: SLIDE_1,
+  },
+  {
+    id: 1,
+    title: "Slide 1",
+    description: "Slide 1 description",
+    image: SLIDE_1,
+  },
 ];
 
 export default slides;

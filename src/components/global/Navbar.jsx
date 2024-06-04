@@ -1,5 +1,6 @@
-import { Button } from "antd";
-import IMAGE from "../../assets/images/bgNav.jpg";
+import { Button, Image } from "antd";
+import IMAGE_URL from "../../assets/images/bgNav.jpg";
+import LOGO from "../../assets/images/logo.png";
 import { ReactComponent as Logo } from "../../assets/svg/Logo.svg";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -21,10 +22,14 @@ const Navbar = () => {
   return (
     <div
       className="navbar bg-base-100 bg-right"
-      style={{ backgroundImage: `url(${IMAGE})` }}
+      style={{ backgroundImage: `url(${IMAGE_URL})` }}
     >
       <div className="flex-1">
-        <Link className="btn btn-ghost text-xl text-white">XXII</Link>
+        <div tabIndex={0} className=" ">
+          <div className="w-10 rounded-full">
+            <img alt="Tailwind CSS Navbar component" src={LOGO} />
+          </div>
+        </div>
       </div>
       <div className="flex-none gap-2">
         <div className="navbar-center hidden lg:flex">
