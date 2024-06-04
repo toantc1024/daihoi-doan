@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaCalendar, FaLocationDot } from "react-icons/fa6";
 import useTimeCountdown from "../../hook/useTimeCountdown";
-import BACKDROP from "../../assets/images//CountDownBackdrop.png";
+import BACKDROP from "../../assets/images//backdropCountdown.png";
 import CardLayout from "../global/CardLayout";
 const Countdown = () => {
   // deadline format: "Jan 5, 2030 15:37:25"
