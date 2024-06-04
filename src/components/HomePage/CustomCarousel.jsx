@@ -1,46 +1,52 @@
 import React from "react";
-import { Button, Carousel } from "antd";
-
+import { Button, Carousel, ConfigProvider } from "antd";
+import slides from "../../assets/images/slides";
 const contentStyle = {
   margin: 0,
   color: "#fff",
-  height:"500px",
+  height: "500px",
   lineHeight: "160px",
   textAlign: "center",
   backgroundSize: "cover",
   backgroundPosition: "center",
 };
 
-const template = (id) => {
-  return `https://picsum.photos/id/${id}/1920/1080`;
-};
-
 const CustomCarousel = () => {
   return (
     <div className="relative">
-      <Carousel arrows infinite={true} autoplay>
-        {[...new Array(25)].map((item, index) => (
-          <div key={index}>
-            <div
-              className="h-64 sm:h-96 md:h-[500px]"
-              style={{
-                ...contentStyle,
-                backgroundImage: `url(${template(index + 1)})`,
-              }}
-            ></div>
-          </div>
-        ))}
-      </Carousel>
-
+      <ConfigProvider
+        theme={{
+          token: {
+            arrowSize: 32,
+            arrowOffset: 32,
+          },
+        }}
+      >
+        <Carousel arrows infinite={true} autoplay>
+          {slides &&
+            slides.map((item) => {
+              return (
+                <div>
+                  <div class="bg-sky-300 ...">
+                    <img
+                      src={item.image}
+                      class="object-fill h-full w-full ..."
+                    />
+                  </div>
+                </div>
+              );
+            })}
+        </Carousel>
+      </ConfigProvider>
       {/* Buttons */}
-      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-4 py-8 z-10 bg-black bg-opacity-50">
+      {/* <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-4 py-8 z-10bg-opacity-50">
         <Button type="primary" className="w-auto px-6">
           Gửi lời chúc
         </Button>
         <Button type="primary" className="w-auto px-6">
           Xác nhận tham dự
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

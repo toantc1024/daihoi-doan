@@ -41,16 +41,13 @@ const Countdown = () => {
         style={{ backgroundImage: `url(${BACKDROP})` }}
       >
         <div
-          className="grid text-shadow-sm text-5xl sm:text-8xl font-bold grid-flow-col gap-2 text-center items-center auto-cols-max text-white
-          md:text-6xl lg:text-7xl xl:text-8xl"
-          style={{ textShadow: "#000000b0 2px 2px 5px", 
-                   
-          }}
+          className="grid text-shadow-sm font-bold grid-flow-col gap-2 text-center items-center auto-cols-max text-2xl md:text-7xl text-white"
+          style={{ textShadow: "#000000b0 2px 2px 5px" }}
         >
           {Object.keys(timeLeft).length > 0 &&
             Object.keys(timeLeft).map((interval, index) => (
               <React.Fragment key={interval}>
-                <div className="flex flex-col rounded-box">
+                <div className="flex flex-col rounded-box ">
                   <span className="countdown">
                     <span style={{ "--value": timeLeft[interval] }}></span>
                   </span>
@@ -59,12 +56,15 @@ const Countdown = () => {
               </React.Fragment>
             ))}
         </div>
-        <div className="font-bold uppercase text-white text-center text-lg sm:text-xl mt-4 mb-4">
+        <div className="font-bold uppercase text-white text-center  sm:text-lg text-xl mt-4 mb-4">
           <span>Hướng tới Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh</span>
-          <span>Trường Đại Học Sư Phạm Kỹ Thuật TP. HCM Lần Thứ XXII, NHIỆM KỲ 2024 - 2027</span>
+          <span>
+            Trường Đại Học Sư Phạm Kỹ Thuật TP. HCM Lần Thứ XXII, NHIỆM KỲ 2024
+            - 2027
+          </span>
         </div>
 
-        <div className="flex flex-col items-center w-full gap-4 font-bold text-white text-center">
+        <div className="flex flex-col md:flex-row md:justify-center md:gap-24  items-center w-full gap-4 font-bold text-white text-center">
           <div className="flex gap-2 items-center text-lg sm:text-3xl">
             <FaCalendar />
             <span>15/06/2024</span>
