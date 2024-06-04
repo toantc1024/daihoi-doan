@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Components
 import { Image, Transformer } from "react-konva";
@@ -13,15 +13,15 @@ const TransformableImage = ({
   image,
   onMouseDown,
   onTouchStart,
+  shapeRef,
 }) => {
-  const shapeRef = React.useRef();
   const trRef = React.useRef();
 
   React.useEffect(() => {
     if (isSelected) {
       trRef.current.nodes([shapeRef.current]);
       trRef.current.getLayer().batchDraw();
-    }
+    } 
   }, [isSelected]);
 
   return (
@@ -61,6 +61,7 @@ const TransformableImage = ({
       {isSelected && (
         <Transformer
           ref={trRef}
+          centeredScaling={true}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.width < 5 || newBox.height < 5) {
               return oldBox;

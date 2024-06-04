@@ -41,7 +41,7 @@ const Countdown = () => {
         style={{ backgroundImage: `url(${BACKDROP})` }}
       >
         <div
-          className="grid text-shadow-sm font-bold grid-flow-col gap-2 text-center items-center auto-cols-max text-2xl md:8xl text-white"
+          className="grid text-shadow-sm font-bold grid-flow-col gap-2 text-center items-center auto-cols-max text-2xl md:text-7xl text-white"
           style={{ textShadow: "#000000b0 2px 2px 5px" }}
         >
           {Object.keys(timeLeft).length > 0 &&
