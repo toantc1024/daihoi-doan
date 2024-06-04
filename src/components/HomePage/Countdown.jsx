@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { FaCalendar, FaLocationDot } from "react-icons/fa6";
 import useTimeCountdown from "../../hook/useTimeCountdown";
-import CountdownBackdrop from "../../assets/images/countdownBackdrop.png";
+import BACKDROP from "../../assets/images//CountDownBackdrop.png";
+import CardLayout from "../global/CardLayout";
 const Countdown = () => {
   // deadline format: "Jan 5, 2030 15:37:25"
   const calculateTimeLeft = (deadline) => {
@@ -34,25 +36,31 @@ const Countdown = () => {
     }, 1000);
   });
   return (
-    <div className="p-4 w-full ">
-      <div className="flex flex-col items-center py-8 w-full justify-center bg-red-400 rounded-2xl ">
-        <div className=" grid text-shadow-lg grid-flow-col gap-5 text-center items-center auto-cols-max text-white ">
+    <CardLayout>
+      <div
+        className="p-6 bg-center bg-contain flex flex-col items-center w-full   justify-center  gap-0"
+        style={{ backgroundImage: `url(${BACKDROP})` }}
+      >
+        <div
+          className=" grid text-shadow-sm text-8xl font-bold grid-flow-col gap-0 text-center items-center auto-cols-max  text-white "
+          style={{ textShadow: "#000000b0 2px 2px 5px" }}
+        >
           {Object.keys(timeLeft).length > 0 &&
             Object.keys(timeLeft).map((interval, index) => (
               <>
-                <div className="flex flex-col p-2 rounded-box">
-                  <span className="countdown font-mono text-6xl">
+                <div className="flex flex-col  rounded-box">
+                  <span className="countdown">
                     <span style={{ "--value": timeLeft[interval] }}></span>
                   </span>
                   {/* {interval} */}
                 </div>
                 {index != Object.keys(timeLeft).length - 1 && (
-                  <div className="text-6xl">{":"}</div>
+                  <div className="">{":"}</div>
                 )}
               </>
             ))}
         </div>
-        <div className="font-bold uppercase text-white flex flex-col items-center justify-center">
+        <div className="font-bold uppercase text-white flex flex-col items-center justify-center text-xl mt-4 mb-4">
           <span>Hướng tới Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh</span>
           <span>
             Trường Đại Học Sư Phạm Kỹ Thuật TP. HCM Lần Thứ XXII, NHIỆM KỲ 2024
@@ -60,11 +68,18 @@ const Countdown = () => {
           </span>
         </div>
 
-        <div>
-          <div>15/06/2024</div>
+        <div className="uppercase text-5xl flex justify-center w-full gap-16 font-bold text-white">
+          <div className="flex gap-2">
+            <FaCalendar />
+            15/06/2024
+          </div>
+          <div className="flex gap-2 ">
+            <FaLocationDot />
+            Hội trường lớn khu A
+          </div>
         </div>
       </div>
-    </div>
+    </CardLayout>
   );
 };
 

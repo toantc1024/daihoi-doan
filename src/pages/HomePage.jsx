@@ -7,7 +7,7 @@ import Letter from "../components/HomePage/Letter";
 
 const HomePage = () => {
   return (
-    <div className="h-screen ">
+    <div className="min-h-screen flex flex-col gap-4">
       <CustomCarousel />
       <Countdown />
       <FrameChanging />

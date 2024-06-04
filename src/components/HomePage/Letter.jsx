@@ -1,7 +1,7 @@
 import React from "react";
-
+import CardLayout from "../global/CardLayout";
 const Letter = () => {
-  return <div>Letter</div>;
+  return <CardLayout>LETTER</CardLayout>;
 };
 
 export default Letter;
