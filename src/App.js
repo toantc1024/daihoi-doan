@@ -1,9 +1,11 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/global/Navbar";
+import ConfirmPage from "./pages/ConfirmPage";
 import Media from "./pages/Media";
 import Footer from "./components/global/Footer";
 import Department from "./pages/Department";
+import LetterPage from "./pages/LetterPage";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -48,6 +50,14 @@ const router = // Or use plain objects
         {
           path: "member",
           element: <Department />,
+        },
+        {
+          path: "letter",
+          element: <LetterPage />,
+        },
+        {
+          path: "confirm",
+          element: <ConfirmPage />,
         },
       ],
     },
