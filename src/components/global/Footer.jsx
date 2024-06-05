@@ -9,7 +9,7 @@ const Footer = () => {
           Đoàn hội Khoa Công nghệ Thông tin.
           <br />
           Just you think, we can do better. ©{new Date().getFullYear()} <br />
-          by <span className="font-bold">tctoan1024</span>
+          by <span className="font-bold">tctoan1024 & AndyAnh174</span>
         </p>
       </aside>
     </footer>

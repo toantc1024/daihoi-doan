@@ -3,6 +3,8 @@ import HomePage from "./pages/HomePage";
 import Navbar from "./components/global/Navbar";
 import ConfirmPage from "./pages/ConfirmPage";
 import Media from "./pages/Media";
+import Media1 from "./pages/Media1";
+import Media2 from "./pages/Media2";
 import Footer from "./components/global/Footer";
 import Department from "./pages/Department";
 import LetterPage from "./pages/LetterPage";
@@ -46,6 +48,14 @@ const router = // Or use plain objects
         {
           path: "media",
           element: <Media />,
+        },
+        {
+          path: "media1",
+          element: <Media1 />,
+        },
+        {
+          path: "media2",
+          element: <Media2 />,
         },
         {
           path: "member",
