@@ -15,9 +15,10 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-
+import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Layout, theme } from "antd";
+import { ToastContainer } from "react-toastify";
 const { Content } = Layout;
 
 const Root = () => {
@@ -31,6 +32,7 @@ const Root = () => {
         <Outlet />
       </Content>
       <Footer />
+      <ToastContainer />
     </Layout>
   );
 };

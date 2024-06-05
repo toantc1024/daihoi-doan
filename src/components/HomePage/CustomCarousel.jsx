@@ -52,8 +52,8 @@ const CustomCarousel = () => {
           Gửi lời chúc
         </Button>
         <Button
-          type="primary"
-          className="w-auto px-6"
+          type=""
+          className="w-auto px-6 bg-[#e12351] text-white"
           onClick={() => {
             navigate("/confirm");
           }}
