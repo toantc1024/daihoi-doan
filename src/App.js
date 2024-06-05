@@ -1,7 +1,9 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/global/Navbar";
+import Media from "./pages/Media";
 import Footer from "./components/global/Footer";
+import Department from "./pages/Department";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -38,6 +40,14 @@ const router = // Or use plain objects
         {
           path: "",
           element: <HomePage />,
+        },
+        {
+          path: "media",
+          element: <Media />,
+        },
+        {
+          path: "member",
+          element: <Department />,
         },
       ],
     },

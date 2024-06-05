@@ -3,21 +3,28 @@ import IMAGE_URL from "../../assets/images/bgNav.jpg";
 import LOGO from "../../assets/images/logo.png";
 import { ReactComponent as Logo } from "../../assets/svg/Logo.svg";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const items = [
     {
+      label: "TRANG CHỦ",
+      key: "",
+    },
+    {
       label: "ẤN PHẨM TRUYỀN THÔNG",
-      key: "mail",
+      key: "media",
     },
     {
       label: "ĐOÀN ĐẠI BIỂU",
+      key: "member",
     },
     {
       label: "KHÔNG GIAN TRIỂN LÃM",
     },
   ];
+
+  const navigate = useNavigate();
   // Viet Anh
   return (
     <div
@@ -36,7 +43,13 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-2">
             {items.map((item) => {
               return (
-                <Button className="bg-transparent shadow-none " type="primary">
+                <Button
+                  className="bg-transparent shadow-none "
+                  type="primary"
+                  onClick={() => {
+                    navigate(item.key);
+                  }}
+                >
                   {item.label}
                 </Button>
               );
