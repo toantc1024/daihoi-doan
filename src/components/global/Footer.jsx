@@ -19,7 +19,7 @@ const Footer = () => {
                 TRƯỜNG ĐẠI HỌC SƯ PHẠM KỸ THUẬT TP. HCM
               </p>
               <p className="text-center">
-                Số 1 Võ Văn Ngân, Linh Chiểu, Tp.Thủ Đức
+                Số 1, Võ Văn Ngân, Linh Chiểu, TP. Thủ Đức, TP. HCM
               </p>
             </div>
           </div>
@@ -31,30 +31,19 @@ const Footer = () => {
           by <span className="font-bold">tctoan1024 & AndyAnh174</span>
         </p>
         <div className="flex items-center gap-4 mt-4">
-          <a href="mailto:doantxung@hcmute.edu.vn" className="link link-hover">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-          </a>
-          <a href="#" className="link link-hover">
+          <a
+            href="https://www.facebook.com/tuoitreHCMUTE"
+            target="_blank"
+            className="link link-hover"
+          >
             <img src={facebookLogo} alt="Facebook Logo" className="h-5 w-5" />
           </a>
-          <a href="#" className="link link-hover">
-            <img src={tiktokLogo} alt="TikTok Logo" className="h-5 w-5" />
-          </a>
-          <a href="#" className="link link-hover">
-            <img src={youtubeLogo} alt="YouTube Logo" className="h-5 w-5" />
+          <a
+            href="https://www.tiktok.com/@tuoitre.hcmute?_t=8myDbaV6v8p&_r=1"
+            target="_blank"
+            className="link link-hover"
+          >
+            <img src={tiktokLogo} alt="Facebook Logo" className="h-5 w-5" />
           </a>
         </div>
       </div>

@@ -24,21 +24,23 @@ const CustomCarousel = () => {
           },
         }}
       >
-        <Carousel arrows infinite={true} autoplay speed={1000}>
-          {slides &&
-            slides.map((item) => {
-              return (
-                <div>
-                  <div class="bg-sky-300 ...">
-                    <img
-                      src={item.image}
-                      class="object-fill h-full w-full ..."
-                    />
+        {slides && slides.length > 0 && (
+          <Carousel arrows infinite={true} autoplay speed={1000}>
+            {slides &&
+              slides.map((item) => {
+                return (
+                  <div>
+                    <div class="bg-sky-300 ...">
+                      <img
+                        src={item.image}
+                        class="object-fill h-full w-full ..."
+                      />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-        </Carousel>
+                );
+              })}
+          </Carousel>
+        )}
       </ConfigProvider>
       {/* Buttons */}
       {/* <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-4 py-8 z-10bg-opacity-50">
