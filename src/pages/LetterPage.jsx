@@ -8,9 +8,9 @@ const LetterPage = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   return (
-    <div className="h-screen bg-red-400">
-      <div className="min-h-screen pt-16 bg-white ">
-        <div className=" flex flex-col md:flex-row  gap-4 items-center  justify-center">
+    <div className="min-h-screen ">
+      <div className="pt-16 bg-white ">
+        <div className=" flex flex-col  gap-4 items-center  justify-center">
           {" "}
           <div className="flex w-full items-center flex-col  gap-2 p-2 ">
             <AvatarUpload {...{ setPath, imageUrl, setImageUrl }} />

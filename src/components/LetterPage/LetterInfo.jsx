@@ -9,7 +9,7 @@ import Letter from "../global/Letter";
 const formItemLayout = {
   labelCol: {
     xs: {
-      span: 24,
+      span: 6,
     },
     sm: {
       span: 6,
@@ -17,7 +17,7 @@ const formItemLayout = {
   },
   wrapperCol: {
     xs: {
-      span: 24,
+      span: 16,
     },
     sm: {
       span: 14,
@@ -25,8 +25,8 @@ const formItemLayout = {
   },
 };
 const App = ({ imageUrl, isAdding, setIsAdding }) => (
-  <div className="flex flex-col">
-    <div className="w-full  ">
+  <div className="flex  justify-center items-center">
+    <div className="w-full ">
       <Form
         onFinish={async (values) => {
           let uploadPromise = new Promise(async (resolve, reject) => {
@@ -50,14 +50,14 @@ const App = ({ imageUrl, isAdding, setIsAdding }) => (
               success: {
                 render() {
                   // navigate("/home");
-                  return `Yeah! Xong rồi nè 🎉🎉🎉`;
+                  return `Đã tải lên thành công ✅`;
                 },
                 icon: "👋",
               },
 
               error: {
                 render({ data }) {
-                  return `Lỗi ời, bạn quay lại sau nha!`;
+                  return `Lỗi, bạn quay lại sau nha!`;
                 },
                 icon: "😥",
               },
@@ -69,12 +69,19 @@ const App = ({ imageUrl, isAdding, setIsAdding }) => (
         }}
         {...formItemLayout}
         variant="filled"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
         style={{
-          maxWidth: 600,
+          maxWidth: 900,
+          width: "100%",
         }}
       >
         <Form.Item
-          label="Tên đại biểu"
+          label="Tên"
           name="ten"
           rules={[
             {
@@ -103,7 +110,7 @@ const App = ({ imageUrl, isAdding, setIsAdding }) => (
           />
         </Form.Item>
         <Form.Item
-          label="MSSV"
+          label="MSSV/MCBVC"
           name="mssv"
           rules={[
             {

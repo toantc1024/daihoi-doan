@@ -24,7 +24,7 @@ const CustomCarousel = () => {
           },
         }}
       >
-        <Carousel arrows infinite={true} autoplay>
+        <Carousel arrows infinite={true} autoplay speed={1000}>
           {slides &&
             slides.map((item) => {
               return (
@@ -41,7 +41,7 @@ const CustomCarousel = () => {
         </Carousel>
       </ConfigProvider>
       {/* Buttons */}
-      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-4 py-8 z-10bg-opacity-50">
+      {/* <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-4 py-8 z-10bg-opacity-50">
         <Button
           type="primary"
           className="w-auto px-6"
@@ -52,15 +52,16 @@ const CustomCarousel = () => {
           Gửi lời chúc
         </Button>
         <Button
-          type=""
-          className="w-auto px-6 bg-[#e12351] text-white"
+          type="primary"
+          danger
+          className="w-auto px-6   text-white"
           onClick={() => {
             navigate("/confirm");
           }}
         >
           Xác nhận tham dự
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

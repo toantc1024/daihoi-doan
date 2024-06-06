@@ -80,7 +80,7 @@ const Frame = () => {
           onClick={() => {
             inputFile.current.click();
           }}
-          className="btn text-2xl text-sky-900"
+          className="btn btn-white text-2xl text-sky-900 flex gap-2 rounded-xl"
         >
           <FaImage /> Chọn hình
         </button>

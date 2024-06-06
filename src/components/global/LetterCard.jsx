@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Avatar, Card, Carousel } from "antd";
+import { Avatar, Badge, Card, Carousel } from "antd";
 import { getDownloadURL, getMetadata, getStorage, ref } from "firebase/storage";
 import { storage } from "../../utils/firebase";
 const contentStyle = {
@@ -37,9 +37,21 @@ const App = ({ data }) => {
             />
           </div>
           <div className="p-4 h-[200px] flex flex-col md:h-[250px] rounded-xl bg-white relative w-full md:w-[400px] ">
-            <div className="flex flex-col text-sm md:text-lg justify-center  px-4 font-bold">
-              <span>{`Đại biểu: ${data.ten || "Đại biểu"}`}</span>
-              <span>{`Khoa: ${data.khoa || "Đại biểu"}`}</span>
+            <div className="flex gap-2 flex-col  text-sm md:text-lg justify-center font-bold">
+              <Badge
+                className="site-badge-count-109"
+                count={`Đại biểu: ${data.ten || "Đại biểu"}`}
+                style={{
+                  backgroundColor: "#e12351",
+                }}
+              />{" "}
+              <Badge
+                className="site-badge-count-109"
+                count={`Đơn vị: ${data.khoa || "Đại biểu"}`}
+                style={{
+                  backgroundColor: "#1977bc",
+                }}
+              />
             </div>
 
             <div className="p-2  text-sm md:text-lg overflow-auto ">
