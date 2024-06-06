@@ -5,6 +5,7 @@ import CardLayout from "../global/CardLayout";
 
 const Countdown = () => {
   // Function to calculate time left until the deadline
+  // Function to calculate time left until the deadline
   const calculateTimeLeft = (deadline) => {
     const countDownDate = new Date(deadline).getTime();
     const now = new Date().getTime();
@@ -13,6 +14,7 @@ const Countdown = () => {
 
     if (difference > 0) {
       timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
@@ -22,7 +24,7 @@ const Countdown = () => {
     return timeLeft;
   };
 
-  const FINAL_DATE = "June 15, 2024 07:35:00";
+  const FINAL_DATE = "June 15, 2024 7:35:00";
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(FINAL_DATE));
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
 
@@ -30,15 +32,14 @@ const Countdown = () => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(FINAL_DATE));
     }, 1000);
-
     // Check if countdown has finished
     if (Object.values(timeLeft).every((value) => value === 0)) {
       setIsCountdownFinished(true);
     }
-
     return () => clearTimeout(timer);
   }, [timeLeft, FINAL_DATE]);
 
+  let labels = ["ngày", "giờ", "phút", "giây"];
   return (
     <CardLayout>
       <div
@@ -47,7 +48,9 @@ const Countdown = () => {
       >
         {isCountdownFinished ? (
           <div className="font-bold uppercase text-white text-center  sm:text-lg text-xl mt-4 mb-4">
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Chào mừng Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh </span>
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+              Chào mừng Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh{" "}
+            </span>
           </div>
         ) : (
           <div
@@ -61,6 +64,7 @@ const Countdown = () => {
                     <span className="countdown">
                       <span style={{ "--value": timeLeft[interval] }}></span>
                     </span>
+                    <span className="text-sm">{labels[index]}</span>
                   </div>
                   {index !== Object.keys(timeLeft).length - 1 && <div>:</div>}
                 </React.Fragment>

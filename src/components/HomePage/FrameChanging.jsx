@@ -12,13 +12,13 @@ const FrameChanging = () => {
     >
       <img
         src={CHIBI_FEMALE}
-        className=" w-[50px] sm:w-[100px] md:w-[200px] lg:w-[300px] absolute right-0 bottom-[2rem]"
+        className=" w-[50px] sm:w-[100px] md:w-[200px] lg:w-[300px] absolute hidden md:flex right-0 bottom-[2rem]"
       ></img>{" "}
       <img
         src={CHIBI_MALE}
-        className=" w-[50px] sm:w-[100px] md:w-[200px] lg:w-[300px] absolute left-0 bottom-[2rem]"
+        className=" w-[50px] sm:w-[100px] md:w-[200px] lg:w-[300px] absolute  hidden md:flex left-0 bottom-[2rem]"
       ></img>{" "}
-      <div className="text-xl md:text-2xl lg:text-5xl text-white  py-4 font-bold">
+      <div className="text-xl md:text-2xl lg:text-5xl text-white  py-4 font-bold text-center">
         <span>ĐỔI FRAME HƯỚNG VỀ ĐẠI HỘI XXII</span>
       </div>
       <Frame />

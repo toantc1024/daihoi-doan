@@ -6,14 +6,12 @@ import CapcutTemplate from "../components/HomePage/CapcutTemplate";
 import Letter from "../components/global/Letter";
 
 const HomePage = () => {
-
-
   return (
     <div className="min-h-screen flex flex-col gap-4">
       <CustomCarousel />
       <Countdown />
       <FrameChanging />
-      <CapcutTemplate />
+      {/* <CapcutTemplate /> */}
       <Letter />
     </div>
   );
