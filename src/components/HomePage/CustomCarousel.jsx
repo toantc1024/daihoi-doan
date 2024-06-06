@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Carousel, ConfigProvider } from "antd";
 import slides from "../../assets/images/slides";
+import { useNavigate } from "react-router-dom";
 const contentStyle = {
   margin: 0,
   color: "#fff",
@@ -12,6 +13,7 @@ const contentStyle = {
 };
 
 const CustomCarousel = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative">
       <ConfigProvider
@@ -22,7 +24,7 @@ const CustomCarousel = () => {
           },
         }}
       >
-        <Carousel arrows infinite={true} autoplay>
+        <Carousel arrows infinite={true} autoplay speed={1000}>
           {slides &&
             slides.map((item) => {
               return (
@@ -40,10 +42,23 @@ const CustomCarousel = () => {
       </ConfigProvider>
       {/* Buttons */}
       {/* <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-4 py-8 z-10bg-opacity-50">
-        <Button type="primary" className="w-auto px-6">
+        <Button
+          type="primary"
+          className="w-auto px-6"
+          onClick={() => {
+            navigate("/letter");
+          }}
+        >
           Gửi lời chúc
         </Button>
-        <Button type="primary" className="w-auto px-6">
+        <Button
+          type="primary"
+          danger
+          className="w-auto px-6   text-white"
+          onClick={() => {
+            navigate("/confirm");
+          }}
+        >
           Xác nhận tham dự
         </Button>
       </div> */}

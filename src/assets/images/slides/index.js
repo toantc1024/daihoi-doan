@@ -1,4 +1,4 @@
-import SLIDE_1 from "./image0.jpg";
+import SLIDE_1 from "./image0.png";
 
 const slides = [
   {

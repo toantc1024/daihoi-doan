@@ -1,7 +1,12 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/global/Navbar";
+import ConfirmPage from "./pages/ConfirmPage";
+import Media from "./pages/Media";
+import Media2 from "./pages/Media2";
 import Footer from "./components/global/Footer";
+import Department from "./pages/Department";
+import LetterPage from "./pages/LetterPage";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -9,9 +14,10 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-
+import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Layout, theme } from "antd";
+import { ToastContainer } from "react-toastify";
 const { Content } = Layout;
 
 const Root = () => {
@@ -25,6 +31,7 @@ const Root = () => {
         <Outlet />
       </Content>
       <Footer />
+      <ToastContainer />
     </Layout>
   );
 };
@@ -38,6 +45,31 @@ const router = // Or use plain objects
         {
           path: "",
           element: <HomePage />,
+        },
+        {
+          path: "*",
+          element: <HomePage />,
+        },
+        {
+          path: "media",
+          element: <Media />,
+        },
+
+        {
+          path: "media2",
+          element: <Media2 />,
+        },
+        {
+          path: "member",
+          element: <Department />,
+        },
+        {
+          path: "letter",
+          element: <LetterPage />,
+        },
+        {
+          path: "confirm",
+          element: <ConfirmPage />,
         },
       ],
     },
