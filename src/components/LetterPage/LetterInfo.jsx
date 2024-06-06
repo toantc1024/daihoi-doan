@@ -105,7 +105,7 @@ const App = ({ imageUrl, isAdding, setIsAdding }) => (
           <Select
             options={DEPARTMENTS.map((department) => ({
               label: department.label,
-              value: department.label,
+              value: department.id,
             }))}
           />
         </Form.Item>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Avatar, Badge, Card, Carousel } from "antd";
+import { images as DEPARTMENTS } from "../../assets/images/departments";
 import { getDownloadURL, getMetadata, getStorage, ref } from "firebase/storage";
 import { storage } from "../../utils/firebase";
 const contentStyle = {
@@ -10,6 +11,10 @@ const contentStyle = {
   background: "#364d79",
 };
 const App = ({ data }) => {
+  const getDepartmentName = (id) => {
+    const department = DEPARTMENTS.find((item) => item.id === id);
+    return department ? department.label : "Đại biểu";
+  };
   const [imageURL, setImageURL] = React.useState(null);
   useEffect(() => {
     const imageRef = ref(storage, data.avatar);
@@ -47,7 +52,7 @@ const App = ({ data }) => {
               />{" "}
               <Badge
                 className="site-badge-count-109"
-                count={`Đơn vị: ${data.khoa || "Đại biểu"}`}
+                count={`Đơn vị: ${getDepartmentName(data.khoa) || "Đại biểu"}`}
                 style={{
                   backgroundColor: "#1977bc",
                 }}

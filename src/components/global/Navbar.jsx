@@ -1,30 +1,40 @@
-import { Button, Image } from "antd";
 import IMAGE_URL from "../../assets/images/bgNav.jpg";
 import LOGO from "../../assets/images/logo.png";
-import { ReactComponent as Logo } from "../../assets/svg/Logo.svg";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Button, Drawer } from "antd";
+import { AiOutlineMenu } from "react-icons/ai";
 
+const items = [
+  {
+    label: "TRANG CHỦ",
+    key: "",
+  },
+  {
+    label: "GỬI LỜI CHÚC",
+    key: "letter",
+  },
+  {
+    label: "VĂN KIỆN",
+    key: "document",
+  },
+  {
+    label: "XÁC NHẬN THAM DỰ",
+    key: "confirm",
+  },
+  {
+    label: "ẤN PHẨM TRUYỀN THÔNG",
+    key: "media",
+  },
+];
 const Navbar = () => {
-  const items = [
-    {
-      label: "TRANG CHỦ",
-      key: "",
-    },
-    {
-      label: "GỬI LỜI CHÚC",
-      key: "letter",
-    },
-    {
-      label: "XÁC NHẬN THAM DỰ",
-      key: "confirm",
-    },
-    {
-      label: "ẤN PHẨM TRUYỀN THÔNG",
-      key: "media",
-    },
-  ];
-
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   const navigate = useNavigate();
   // Viet Anh
   return (
@@ -40,7 +50,7 @@ const Navbar = () => {
             navigate("/");
           }}
         >
-          <div className="w-10 hidden lg:flex   rounded-full">
+          <div className="w-10   rounded-full">
             <img alt="Tailwind CSS Navbar component" src={LOGO} />
           </div>
         </div>
@@ -65,35 +75,41 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="dropdown dropdown-end   lg:hidden">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full bg-white p-2">
-              <img alt="Tailwind CSS Navbar component" src={LOGO} />
+          <div className="flex gap-2  items-center justify-between">
+            {" "}
+            <Button
+              danger
+              type="primary"
+              onClick={() => {
+                navigate("confirm");
+              }}
+            >
+              Xác nhận tham dự
+            </Button>
+            <div
+              className="bg-blue-400 hover:bg-blue-500 active:bg-blue-600 h-10  flex items-center justify-center w-10 rounded-xl p-2"
+              onClick={showDrawer}
+            >
+              <AiOutlineMenu className="text-white" />
             </div>
           </div>
-
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[999] p-2 shadow menu menu-sm dropdown-content bg-[#1977bc] flex flex-col gap-1 rounded-box w-52 "
-          >
-            {items.map((item) => {
-              return (
-                <Button
-                  danger={item.key === "confirm"}
-                  className="bg-transparent"
-                  type="primary"
-                  onClick={() => {
-                    navigate(item.key);
-                  }}
-                >
-                  {item.label}
-                </Button>
-              );
-            })}
-          </ul>
+          <Drawer title="Menu" onClose={onClose} open={open}>
+            <div className="flex flex-col gap-2">
+              {items.map((item) => {
+                if (item.key !== "confirm")
+                  return (
+                    <Button
+                      type="primary"
+                      onClick={() => {
+                        navigate(item.key);
+                      }}
+                    >
+                      {item.label}
+                    </Button>
+                  );
+              })}
+            </div>
+          </Drawer>
         </div>
       </div>
     </div>

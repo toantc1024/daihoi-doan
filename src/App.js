@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Layout, theme } from "antd";
 import { ToastContainer } from "react-toastify";
+import DepartmentPage from "./pages/DepartmentPage";
 const { Content } = Layout;
 
 const Root = () => {
@@ -45,6 +46,11 @@ const router = // Or use plain objects
         {
           path: "",
           element: <HomePage />,
+        },
+        {
+          path: "department/:id",
+          // get :id
+          element: <DepartmentPage />,
         },
         {
           path: "*",
