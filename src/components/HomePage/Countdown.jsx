@@ -13,7 +13,6 @@ const Countdown = () => {
 
     if (difference > 0) {
       timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
@@ -23,13 +22,19 @@ const Countdown = () => {
     return timeLeft;
   };
 
-  const FINAL_DATE = "June 4, 2024 23:59:59";
+  const FINAL_DATE = "June 15, 2024 07:35:00";
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(FINAL_DATE));
+  const [isCountdownFinished, setIsCountdownFinished] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(FINAL_DATE));
     }, 1000);
+
+    // Check if countdown has finished
+    if (Object.values(timeLeft).every((value) => value === 0)) {
+      setIsCountdownFinished(true);
+    }
 
     return () => clearTimeout(timer);
   }, [timeLeft, FINAL_DATE]);
@@ -40,24 +45,31 @@ const Countdown = () => {
         className="p-6 bg-center bg-cover flex flex-col items-center w-full justify-center gap-4"
         style={{ backgroundImage: `url(${BACKDROP})` }}
       >
-        <div
-          className="grid text-shadow-sm font-bold grid-flow-col gap-2 text-center items-center auto-cols-max text-2xl md:text-7xl text-white"
-          style={{ textShadow: "#000000b0 2px 2px 5px" }}
-        >
-          {Object.keys(timeLeft).length > 0 &&
-            Object.keys(timeLeft).map((interval, index) => (
-              <React.Fragment key={interval}>
-                <div className="flex flex-col rounded-box ">
-                  <span className="countdown">
-                    <span style={{ "--value": timeLeft[interval] }}></span>
-                  </span>
-                </div>
-                {index !== Object.keys(timeLeft).length - 1 && <div>:</div>}
-              </React.Fragment>
-            ))}
-        </div>
+        {isCountdownFinished ? (
+          <div className="font-bold uppercase text-white text-center  sm:text-lg text-xl mt-4 mb-4">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Chào mừng Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh </span>
+          </div>
+        ) : (
+          <div
+            className="grid text-shadow-sm font-bold grid-flow-col gap-2 text-center items-center auto-cols-max text-2xl md:text-7xl text-white"
+            style={{ textShadow: "#000000b0 2px 2px 5px" }}
+          >
+            {Object.keys(timeLeft).length > 0 &&
+              Object.keys(timeLeft).map((interval, index) => (
+                <React.Fragment key={interval}>
+                  <div className="flex flex-col rounded-box ">
+                    <span className="countdown">
+                      <span style={{ "--value": timeLeft[interval] }}></span>
+                    </span>
+                  </div>
+                  {index !== Object.keys(timeLeft).length - 1 && <div>:</div>}
+                </React.Fragment>
+              ))}
+          </div>
+        )}
+
         <div className="font-bold uppercase text-white text-center  sm:text-lg text-xl mt-4 mb-4">
-          <span>Hướng tới Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh</span>
+          <span>Hướng tới Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh </span>
           <span>
             Trường Đại Học Sư Phạm Kỹ Thuật TP. HCM Lần Thứ XXII, NHIỆM KỲ 2024
             - 2027

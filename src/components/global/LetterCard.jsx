@@ -19,7 +19,7 @@ const App = ({ data }) => {
   }, []);
   return (
     <>
-      <div className="flex p-8 bg-white  items-center justify-center">
+      <div className="flex p-4 bg-white  items-center justify-center">
         <div className="p-2 bg-[#1977bc] shadow-md  flex  items-center flex-col md:flex-row md:justify-center  gap-4 py-8 rounded-xl w-full">
           <div className="bg-white p-2 rounded-full">
             <Avatar
