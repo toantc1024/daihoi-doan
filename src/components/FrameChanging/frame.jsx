@@ -39,7 +39,7 @@ const Frame = () => {
   return (
     <>
       {typeof window !== "undefined" && (
-        <div className="bg-white p-4 rounded-xl ">
+        <div className="bg-white md:p-4 rounded-xl ">
           <CanvasStage
             scale={scale}
             stageRef={stageRef}

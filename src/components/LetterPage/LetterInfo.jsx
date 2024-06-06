@@ -93,12 +93,12 @@ const App = ({ imageUrl, isAdding, setIsAdding }) => (
           <Input />
         </Form.Item>
         <Form.Item
-          label="Khoa"
+          label="Đơn vị:"
           name="khoa"
           rules={[
             {
               required: true,
-              message: "Bạn đế từ khoa nào",
+              message: "Bạn đến từ đơn vị nào?",
             },
           ]}
         >
