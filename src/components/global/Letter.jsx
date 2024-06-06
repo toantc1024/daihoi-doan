@@ -23,12 +23,14 @@ const Letter = () => {
 
   return (
     <div className="h-auto">
-      <Carousel arrows infinite={true} autoplay>
-        {letters &&
-          letters.map((item) => {
-            return <LetterCard data={item} />;
-          })}
-      </Carousel>
+      {letters && letters.length > 0 && (
+        <Carousel arrows infinite={true} autoplay>
+          {letters &&
+            letters.map((item) => {
+              return <LetterCard data={item} />;
+            })}
+        </Carousel>
+      )}
     </div>
   );
 };
