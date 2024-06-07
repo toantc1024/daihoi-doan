@@ -62,7 +62,7 @@ const router = // Or use plain objects
         },
 
         {
-          path: "media2",
+          path: "document",
           element: <Media2 />,
         },
         {

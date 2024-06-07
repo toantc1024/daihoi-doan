@@ -41,9 +41,9 @@ function FlipBook() {
 <> 
 
         {/* {loading && <Loading loading = {loading} />} */}
-      <div className="bg-gray-900 h-screen flex flex-col justify-end items-center md:justify-center scroll-mx-2 overflow-hidden">
+      <div className="bg-gray-900 h-screen flex flex-col justify-center items-center md:justify-center scroll-mx-2 overflow-hidden">
       <div className="text-4xl font-bold md:font-extrabold text-white">Văn Kiện</div>
-        <HTMLFlipBook width={350} height={400} showCover={true}>
+        <HTMLFlipBook width={450} height={500} showCover={true} className="mt-4">
             
 
 
@@ -54,7 +54,7 @@ function FlipBook() {
               onLoadSuccess={onDocumentLoadSuccess} 
               
             >
-              <Page pageNumber={n+1}  renderAnnotationLayer={false} renderTextLayer={false} width={350} className='border-3 border-black' />
+              <Page pageNumber={n+1}  renderAnnotationLayer={false} renderTextLayer={false} width={450} className='border-3 border-black' />
             </Document>
            
             </Pages>
