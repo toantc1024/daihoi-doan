@@ -1,6 +1,6 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import LetterCard from "../components/global/LetterCard";
+import MemberCard from "../components/DepartmentPage/MemberCard";
 import { useParams } from "react-router-dom";
 import { db } from "../utils/firebase";
 const DepartmentPage = () => {
@@ -23,9 +23,9 @@ const DepartmentPage = () => {
     getAttendees();
   }, [id]);
   return (
-    <div>
+    <div className="flex bg-white py-8 flex-wrap gap-2 p-4 items-center justify-center">
       {attendees.map((attendee) => (
-        <LetterCard data={attendee} />
+        <MemberCard data={attendee} />
       ))}
     </div>
   );

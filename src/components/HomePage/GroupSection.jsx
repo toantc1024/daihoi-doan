@@ -21,7 +21,6 @@ const App = () => {
                 style={gridStyle}
                 className="flex flex-col gap-2 items-center justify-center"
               >
-                <Badge count={88} showZero color="#faad14" />
                 <img
                   src={item.image}
                   alt={item.label}

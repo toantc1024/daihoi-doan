@@ -3,7 +3,6 @@ import HomePage from "./pages/HomePage";
 import Navbar from "./components/global/Navbar";
 import ConfirmPage from "./pages/ConfirmPage";
 import Media from "./pages/Media";
-import Media2 from "./pages/Media2";
 import Footer from "./components/global/Footer";
 import Department from "./pages/Department";
 import LetterPage from "./pages/LetterPage";
@@ -19,6 +18,7 @@ import React from "react";
 import { Layout, theme } from "antd";
 import { ToastContainer } from "react-toastify";
 import DepartmentPage from "./pages/DepartmentPage";
+import DocumentPage from "./pages/DocumentPage";
 const { Content } = Layout;
 
 const Root = () => {
@@ -48,6 +48,10 @@ const router = // Or use plain objects
           element: <HomePage />,
         },
         {
+          path: "document",
+          element: <DocumentPage />,
+        },
+        {
           path: "department/:id",
           // get :id
           element: <DepartmentPage />,
@@ -61,10 +65,6 @@ const router = // Or use plain objects
           element: <Media />,
         },
 
-        {
-          path: "media2",
-          element: <Media2 />,
-        },
         {
           path: "member",
           element: <Department />,
