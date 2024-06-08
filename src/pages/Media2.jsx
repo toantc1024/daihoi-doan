@@ -55,7 +55,7 @@ function FlipBook() {
             <img src={logo1} alt="Logo" className="max-w-full" />
           </div>
 
-        <HTMLFlipBook width={450} height={500} showCover={true} className="mt-4">
+        <HTMLFlipBook width={450} height={500} showCover={true} className="mt-0">
             
 
 
