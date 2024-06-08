@@ -1,10 +1,11 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import "./styles.css";
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import pdf from './VanKien.pdf';
-// import Loading from "./Loading";
+import logo1 from '/home/andyanh/daihoi-doan/src/assets/images/TLVK1.png'; 
+import logo2 from '/home/andyanh/daihoi-doan/src/assets/images/TLVK2.png'; 
 
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 //   'pdfjs-dist/build/pdf.worker.min.js',
@@ -42,7 +43,18 @@ function FlipBook() {
 
         {/* {loading && <Loading loading = {loading} />} */}
       <div className="bg-gray-900 h-screen flex flex-col justify-center items-center md:justify-center scroll-mx-2 overflow-hidden">
-      <div className="text-4xl font-bold md:font-extrabold text-white">Văn Kiện</div>
+      <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
+            <img src={logo2} alt="Logo" className="max-w-full" />
+          </div>
+          <div className="w-full md:w-1/2 flex justify-center items-center mb-4">
+            <a href="https://drive.google.com/drive/folders/1mt5w87in6HH7n7BGy3ZNsTb3_nFw15vg" target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Mời đại biểu nhấn vào đây
+            </a>
+          </div>
+          <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
+            <img src={logo1} alt="Logo" className="max-w-full" />
+          </div>
+
         <HTMLFlipBook width={450} height={500} showCover={true} className="mt-4">
             
 
