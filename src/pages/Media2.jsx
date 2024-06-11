@@ -6,6 +6,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import pdf from './VanKien.pdf';
 import logo1 from '/home/andyanh/daihoi-doan/src/assets/images/TLVK1.png'; 
 import logo2 from '/home/andyanh/daihoi-doan/src/assets/images/TLVK2.png'; 
+import logo3 from '/home/andyanh/daihoi-doan/src/assets/images/TLVK3.jpg'; 
 
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 //   'pdfjs-dist/build/pdf.worker.min.js',
@@ -26,7 +27,6 @@ const Pages = React.forwardRef((props, ref) => {
 
 function FlipBook() {
 
-
     // const [loading, setLoading] = useState(true);
   
     const [numPages, setNumPages] = useState(null);
@@ -43,7 +43,15 @@ function FlipBook() {
 
         {/* {loading && <Loading loading = {loading} />} */}
       <div className="bg-gray-900 h-screen flex flex-col justify-center items-center md:justify-center scroll-mx-2 overflow-hidden">
-      <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
+        <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
+            <img src={logo3} alt="Logo" className="max-w-full" />
+          </div>
+          <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
+            <a href="https://forms.gle/LgEzHAv54WK9cjSY7" target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Góp ý văn kiện
+            </a>
+          </div>
+          <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
             <img src={logo2} alt="Logo" className="max-w-full" />
           </div>
           <div className="w-full md:w-1/2 flex justify-center items-center mb-4">
@@ -54,24 +62,23 @@ function FlipBook() {
           <div className="w-full  md:w-1/2 flex justify-center items-center mb-4">
             <img src={logo1} alt="Logo" className="max-w-full" />
           </div>
-
-        <HTMLFlipBook width={450} height={500} showCover={true} className="mt-0">
-            
-
-
-        {[...Array(numPages).keys()].map((n) => (
+        <div className="h-auto overflow-y-auto px-4">
+          <HTMLFlipBook width={450} height={700} showCover={true} className="mt-0"> 
+            {/* Thay đổi height của HTMLFlipBook */}
+            {[...Array(numPages).keys()].map((n) => (
                 <Pages number={`${n+1}`}>
                  <Document
               file={pdf}
               onLoadSuccess={onDocumentLoadSuccess} 
               
             >
-              <Page pageNumber={n+1}  renderAnnotationLayer={false} renderTextLayer={false} width={450} className='border-3 border-black' />
+              <Page pageNumber={n+1}  renderAnnotationLayer={false} renderTextLayer={false} width={450} height={700} className='border-3 border-black' />
             </Document>
            
             </Pages>
               ))}
-        </HTMLFlipBook>
+          </HTMLFlipBook>
+        </div>
       </div>
       </>
     );
